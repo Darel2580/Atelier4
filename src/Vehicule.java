@@ -1,7 +1,12 @@
 abstract class Vehicule {
+    public String année_prod;
     protected String marque;
     protected String modele;
     protected int anneeProduction;
+    protected int nombre_portes;
+    protected int poids;
+    protected int cylindre;
+    protected String  type;
     protected double prix;
 
     public Vehicule(String marque, String modele, int anneeProduction, double prix) throws VehiculeInvalidException {

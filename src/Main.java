@@ -1,5 +1,4 @@
 // Packages
-package com.example.vehicules;
 
 // Imports
 import java.io.FileWriter;
@@ -8,12 +7,21 @@ import Camion.Camion;
 import ParcVehicules.ParcVehicules;
 import Vehicule.Vehicule;
 import Voiture.Voiture;
+
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.*;
-public class Main {
-    public static void main(String[] args) {
+
+public class Main  {
+    public static void main(String[] args) throws SQLException {
         String nomFichier = "DATASELEMANI.txt";
         String texte = "Gestion des vehicules.";
-
+        Main mainInstance = new Main();
+        mainInstance.GestionDB();
+        ;
+        ConnectiviteSQL connectivite = new ConnectiviteSQL();
+        Connection con=connectivite.connect();
+        connectivite.connect();
         try {
             FileWriter writer = new FileWriter(nomFichier, true); // 'true' pour ajouter à la fin du fichier
             writer.write(texte + "\n");
@@ -67,6 +75,10 @@ public class Main {
         } while (choix != 9);
 
         scanner.close();
+    }
+
+    private void GestionDB() {
+
     }
 
     private static void rechercherVehicule(ParcVehicules parc, Scanner scanner) {
@@ -197,4 +209,5 @@ public class Main {
             System.exit(0);
         }
         }
-    }
+
+}
